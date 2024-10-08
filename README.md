@@ -4,7 +4,7 @@
 
 ​		Director是一个基于Java语言的多行为者（multi-actors）仿真框架。其优势在于轻量级与便捷性，只需要通过简单的注解配置，就可以快速搭建仿真系统。正如其名字一样，Director会负责管理所有的行为者（actor）并执行它们的行为（action），让开发者更专注于行为者的行为逻辑设计。
 
-<img src="https://github.com/ImportMan-Jim/Director/images/director-logo.png" alt="director-logo" style="zoom:40%;" />
+<img src="https://github.com/ImportMan-Jim/Director/tree/master/images/director-logo.png" alt="director-logo" style="zoom:40%;" />
 
 # Director的应用场景
 
@@ -38,7 +38,7 @@
 
 2.创建您的项目，这里，我们直接创建一个最简单的Java项目并引入direct-x.x.x.jar包。目录结构如下所示，Director对项目结构没有明确要求，但需要一个启动类，确保该启动类与包含代码的Package处于同一级。例如案例中，`KidSimulationApplication.class`作为启动类，与actors处于同一级。这是因为Director类似于Spring，默认会扫描启动类所在的Package下的所有类。
 
-<img src="https://github.com/ImportMan-Jim/Director/images/demo-structure.png" alt="demo-structure" style="zoom:60%;" />
+<img src="https://github.com/ImportMan-Jim/Director/tree/master/images/demo-structure.png" alt="demo-structure" style="zoom:60%;" />
 
 3.编写启动类，类似Spring项目，在main方法中调用`DirectorApplication.run()`是必不可少的。
 
@@ -251,7 +251,7 @@ public class KidConfigure extends BasicConfigure {
 
 ​		`@Init`注解作用于方法，被标记的方法将在所有Actor实例化后、正式逐帧执行Action前执行，如下图所示。因此，您可以在这一步执行仿真前的初始化工作。
 
-<img src="https://github.com/ImportMan-Jim/Director/images/progressing.png" alt="progressing" style="zoom:30%;" />
+<img src="https://github.com/ImportMan-Jim/Director/tree/master/images/progressing.png" alt="progressing" style="zoom:30%;" />
 
 ​		例如，在Kid的`init()`方法中对属性stepSize进行计算和赋值。
 
@@ -283,7 +283,7 @@ public class Kid {
 
 ​		`@Status`注解作用于字符串属性，用于标记当前Actor的状态。在@Action小节提到`@Action(String status)`，若传入的status非空，则对应的Action为带有状态的Action。具体而言，在每一帧中，只有Actor的状态等于Action的状态时，对应的Action才会被执行。`@Action(String status)`配合`@Status`使用，可以巧妙地实现复杂的Actor状态转移，如下图所示。
 
-<img src="https://github.com/ImportMan-Jim/Director/images/status-transform1.png" alt="status-transform1" style="zoom:30%;" />
+<img src="https://github.com/ImportMan-Jim/Director/tree/master/images/status-transform1.png" alt="status-transform1" style="zoom:30%;" />
 
 ​		我们仍然以小孩随机走动为例，只不过增加一项需求：**小孩太胖了，每走一步需要休息5秒钟！**先分析一下小孩的状态转移图（如下所示）。可以看到，小孩在仿真过程中始终处于这两个状态之一，要么“WALKING”，要么“RESTING”。接下来，我们只需要实现这些状态转移方法即可。
 
@@ -362,4 +362,4 @@ public class Kid {
 }
 ```
 
-<img src="https://github.com/ImportMan-Jim/Director/images/demo-log.png" alt="demo-log"/>
+<img src="https://github.com/ImportMan-Jim/Director/tree/master/images/demo-log.png" alt="demo-log"/>
